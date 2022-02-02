@@ -1,6 +1,6 @@
 module.exports = {
-	url: 'https://2206.design',
-	siteName: '11tydough',
+	url: '/', // Client Url
+	siteName: '[Client Name]',
 	siteDescription: '',
 	siteKeywords: '',
 	utilityNav: [
