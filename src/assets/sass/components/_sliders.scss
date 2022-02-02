@@ -1,0 +1,43 @@
+
+
+.slider-big,
+.slider-thumbs {
+	width: 100%;
+	max-width: 550px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.slider-big {
+	margin-bottom: calc($standard/2);
+
+	img {
+		margin: 0 auto;
+	}
+}
+
+.slider-thumbs {
+	margin-bottom: calc($standard/2);
+	margin-top: -10px;
+
+	.slick-slide {
+		outline: none;
+		margin: 0;
+		cursor: pointer;
+
+		&.slick-current {
+			opacity: .5;
+		}
+	}
+
+	.thumb-wrap {
+		border: 1px solid darken($gray-light, 8%);
+		margin: 0 5px;
+	}
+
+	.thumb {
+		padding: 5px;
+		margin: 0 auto;
+	}
+
+}

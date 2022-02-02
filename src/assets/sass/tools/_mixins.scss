@@ -1,0 +1,80 @@
+// These are global mixins for aiding in prefixing, fallbacks, shortcuts, etc.
+// Component-specific mixins may be found within their component files, such as spacing
+
+// ==============================================
+// TYPOGRAPHY
+// ==============================================
+@mixin serif(){
+    font-family: $serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin sans(){
+    font-family: $sans;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin sans-cond(){
+    font-family: $sans-cond;
+    font-weight: 700;
+    font-style: normal;
+}
+
+// ==============================================
+// PREFIX HELPERS */
+// ==============================================
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+
+@mixin selection-bkg($bkg-color:$green, $font-color:$black){
+    ::-moz-selection {
+      background-color: $bkg-color;
+      color: $font-color;
+      cursor: text;
+    }
+
+    ::selection {
+      background-color: $bkg-color;
+      color: $font-color;
+      cursor: text;
+    }
+}
+
+@mixin user-select($prop){
+    /* Prevent the selection on tap-hold and text selection */
+    -webkit-touch-callout: $prop;
+    -webkit-user-select: $prop;
+    -moz-user-select: $prop;
+    -ms-user-select: $prop;
+    user-select: $prop;
+}
+
+@mixin text-size-adjust($prop){
+    /* Prevent text resize on orientation change, useful for web-apps */
+	-webkit-text-size-adjust: $prop;
+	-moz-text-size-adjust: $prop;
+	-ms-text-size-adjust: $prop;
+	-o-text-size-adjust: $prop;
+	text-size-adjust: $prop;
+}
+
+// Rotate SVGs, like arrows. Start with the svgs in down mode.
+@mixin rotate-right(){ transform: rotate(-90deg); }
+@mixin rotate-left(){ transform: rotate(90deg); }
+@mixin rotate-down(){ transform: rotate(180deg); }
+@mixin rotate-up(){ transform: rotate(180deg); }
+
+.rotate-right { @include rotate-right(); }
+.rotate-left { @include rotate-left(); }
+.rotate-down { @include rotate-down(); }
+.rotate-up { @include rotate-up(); }

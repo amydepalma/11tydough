@@ -1,0 +1,30 @@
+footer {
+	border-top: 1px solid $gray;
+	padding-top: calc($standard/2);
+	margin-top: $standard;
+
+	@media screen and ($medium) {
+		padding-top: calc($standard/2);
+		margin-top: $standard*2;
+	}
+
+	p {
+		font-size: rem-calc(14);
+		line-height: rem-calc(22);
+
+		+ p {
+			padding-top: 5px;
+		}
+
+		&.sans-cond {
+			font-size: rem-calc(16);
+			line-height: rem-calc(24);
+		}
+	}
+
+
+	.phone, .email, .fax {
+		font-size: rem-calc(14) !important;
+		line-height: rem-calc(22) !important;
+	}
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	{% include "head.html" %}
+
+	<body>
+		{% include "svg-sprite.html" %}
+
+		{% include "header.html" %}
+
+		{% if title == "Home" %}
+			{{ content | safe }}
+		{% else %}
+			<main>
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h1>{{ title }}</h1>
+						</div>
+					</div>
+				</div>
+				{{ content | safe }}
+			</main>
+		{% endif %}
+
+		{% include "footer.html" %}
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" defer></script>
+		<script src="{{ '/assets/js/main.min.js' | url }}"></script>
+
+		{% if title == "Contact Us" %}
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+			<script src="{{ '/assets/js/validate.min.js' | url }}"></script>
+		{% endif %}
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<div class="xs-space"></div>
+<div class="sm-space"></div>
+
+<div class="slider-big">
+	{% for galleryItem in galleryItems %}
+		{% set imgPath = "../assets/imgs/sliders/" + page.fileSlug + "/" + galleryItem.fileName %}
+		<div>
+			<img src="{{ imgPath }}" alt="{{ galleryItem.alt }}" />
+		</div>
+	{% endfor %}
+</div>
+{% if galleryItems.length > 1 %}
+	<div class="slider-thumbs">
+		{% for galleryItem in galleryItems %}
+			{% set imgPath2 = "../assets/imgs/sliders/" + page.fileSlug + "/" + galleryItem.fileName %}
+			<div>
+				<div class="thumb-wrap">
+					<img src="{{ imgPath2 }}" alt="{{ galleryItem.alt }}" class="thumb" />
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endif %}

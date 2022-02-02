@@ -1,0 +1,445 @@
+
+$mobile-menu-max: "max-width: 767px"; // Max-width for showing the mobile menu
+
+
+body {
+	margin-top: 46px;
+
+	@media screen and ($medium) {
+		margin-top: 124px;
+	}
+	@media screen and ($large) {
+		margin-top: 160px;
+	}
+}
+// ==============================================
+// GLOBAL HEADER BAR
+// You can change: Background-color & Top from #drilldown
+// Nothing else here should be updated when using this navigation.
+// ==============================================
+
+
+#fixed-header-wrap {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1040;
+	background-color: $gray-light;
+	border-bottom: 1px solid darken($gray-light, 8%);
+
+	&:hover {
+		z-index: 1041;
+	}
+
+	@media screen and ($medium) {
+		background-color: $white;
+		border-bottom: 1px solid $gray-light;
+	}
+}
+
+#alert-banner {
+	display: block;
+	width: 100%;
+	text-align: center;
+	background: $blue-light;
+	border-bottom: 1px solid $white;
+	text-align: center;
+	color: $white;
+	letter-spacing: 1px;
+	font-size: rem-calc(13);
+	line-height: rem-calc(21);
+	font-weight: bold;
+	padding: 5px 10px;
+
+	&:hover {
+		background: darken($blue-light, 8%);
+		border-bottom: 1px solid $white;
+	}
+
+	span {
+		display: block;
+		margin: 0 auto;
+		width: 95%;
+		word-break: keep-all;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+header {
+	margin: 0 auto;
+	position: relative;
+}
+
+// #header-logo-container positions the logo container within the header bar
+#header-logo-container {
+	transition: all 0.3s;
+	position: relative;
+	top: 6px;
+	left: -6px;
+	z-index: 100;
+
+	@media screen and ($medium) {
+		left: 0;
+		top: 18px;
+	}
+
+	@media screen and ($large) {
+		top: 20px;
+	}
+}
+
+// Keeps the logo on top of the primary and utility navs
+#logo-wrapper {
+	position: absolute;
+}
+
+// Sizing/Spacing of the main logo
+#logo {
+	display: block;
+
+	img {
+		transition: all 0.2s ease;
+		width: 123px;
+		height: 34px;
+
+		@media screen and ($medium) {
+			width: 170px;
+			height: 50px;
+		}
+
+		@media screen and ($large) {
+			width: 284px;
+			height: 83px;
+		}
+	}
+}
+
+// When we scroll down the page, .fixed-on is added to #fixed-header-wrap
+@media screen and ($medium) {
+	.fixed-on #logo img {
+		width: 170px;
+		height: 50px;
+	}
+
+	.fixed-on #primary {
+		height: 90px;
+
+		// The links
+		> ul.primary-lvl-1 {
+			top: 23px;
+		}
+	}
+
+	.fixed-on #utility-bar {
+		display: none !important;
+	}
+}
+
+// These are the links displayed on mobile in the nav bar
+#mobile-navbar-links {
+	float: right;
+	position: relative;
+	top: 9px;
+	right: -15px;
+	z-index: 100;
+	background: $gray-light;
+
+	@media screen and ($medium) {
+		display: none;
+	}
+
+	a {
+		padding: 15px 15px 8px 15px;
+		transition: all .2s;
+
+		&.open svg.icon use {
+			fill: $gray;
+		}
+
+		svg.icon use {
+			fill: $gray-dark;
+		}
+	}
+}
+
+
+// ==============================================
+// SETUP FOR THE DRILLDOWN STRUCTURE
+// You can change: Background-color & Top from #drilldown
+// Nothing else here should be updated when using this navigation.
+// ==============================================
+
+.locked {
+	overflow: hidden;
+	height: 100%;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.keep-on-top {
+	z-index: 10000 !important;
+}
+
+#drilldown {
+	display: block;
+	height: auto;
+
+	//Using max-widths so we have less overrides since so much is changing
+	@media screen and ($mobile-menu-max) {
+		display: none;
+		width: 100vw;
+		height: 100vh;
+		-webkit-overflow-scrolling: touch;
+		overflow: hidden;
+		position: absolute;
+		left: -15px;
+		right: 0;
+		top: 46px; // CAN CHANGE
+		background: $white; // CAN CHANGE
+
+		.drilldown-sub {
+			display: none;
+		}
+
+		.drilldown-container {
+			-webkit-overflow-scrolling: touch;
+			overflow: hidden;
+			padding: 0;
+			height: 100%;
+		}
+
+		.drilldown-root {
+			//wrapper for the content that moves
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+}
+
+
+// ==============================================
+// GLOBAL STYLES OF PRIMARY/UTILITY NAVS
+// ==============================================
+@media screen and ($mobile-menu-max) {
+	.mobile-menu-hide {
+		display: none !important;
+	}
+}
+
+nav#main {
+	position: relative;
+	height: 46px;
+
+	@media screen and ($medium) {
+		height: auto;
+	}
+
+	ul, li {
+		list-style-type: none;
+	}
+}
+
+
+// ==============================================
+// PRIMARY
+// ==============================================
+
+#primary {
+	background: $white;
+
+	@media screen and ($medium) {
+		width: 100%;
+		transition: all 0.2s;
+		height: 90px;
+	}
+
+	@media screen and ($large) {
+		height: 125px;
+	}
+}
+
+/* 1st Level Links */
+ul.primary-lvl-1 {
+	margin: 0;
+	padding: 0 15px; // 0 if the seperator lines should go to the edge; if so then padding on the <a> would need updated
+
+	@media screen and ($medium) {
+		padding: 0;
+		margin: 0 auto;
+		max-width: 1140px;
+		position: relative;
+		top: 25px;
+		text-align: right;
+	}
+
+	@media screen and ($large) {
+		top: 41px;
+	}
+
+	> li {
+		padding: 0;
+		margin: 0;
+		display: flex;
+		border-bottom: 1px solid $gray-light;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
+
+		@media screen and ($medium) {
+			direction: ltr;
+			position: relative;
+			overflow: visible;
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 4px;
+			border-bottom: none;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			&.active {
+				background-color:  $blue-light;
+				border-radius: 2px;
+			}
+
+			&:hover {
+				background-color:  $blue;
+			}
+		}
+
+		@media screen and ($large) {
+			margin: 0 14px;
+		}
+
+		> a {
+			@include sans-cond;
+			flex: 1 1 auto;
+			font-size: rem-calc(20);
+			line-height: rem-calc(24);
+			color: $gray-dark;
+			padding: 10px 6px;
+
+			@media screen and ($medium) {
+				direction: rtl;
+				display: inline-block;
+				padding: 8px 10px 10px 10px;
+				font-size: rem-calc(22);
+			}
+
+			@media screen and ($large) {
+				font-size: rem-calc(24);
+			}
+
+			@media screen and ($xl) {
+				font-size: rem-calc(28);
+			}
+		}
+
+		@media screen and ($medium) {
+			> a:hover,
+			&.active > a {
+				color: $white;
+				text-decoration: none !important;
+			}
+		}
+	}
+}
+
+
+// ==============================================
+// UTILITY BAR
+// ==============================================
+
+#utility-bar {
+	background: $gray-light;
+	clear: both;
+	display: none !important;
+
+	@media screen and ($medium) {
+		display: block !important;
+	}
+}
+
+/* 1st Level Links */
+ul.utility-bar-lvl-1 {
+	margin: 0;
+	padding: 0 15px;
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+	text-align: right;
+
+
+	> li {
+		display: inline-block;
+		direction: ltr;
+		position: relative;
+		overflow: visible;
+		padding: 0;
+		margin: 0 6px;
+		border-bottom: none;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		> a {
+			font-size: rem-calc(14);
+			color: $gray-dark;
+			text-transform: uppercase;
+			display: inline-block;
+			padding: 5px 6px;
+
+			svg.icon {
+				margin-right: 3px;
+				bottom: -2px;
+			}
+
+			&:hover {
+				background-color: darken($gray-light, 7%);
+				text-decoration: none !important;
+			}
+		}
+	}
+}
+
+// ==============================================
+// UTILITY MOBILE
+// ==============================================
+
+#utility {
+	border-top: 1px solid $gray-light;
+	clear: both;
+	display: block;
+
+	@media screen and ($medium) {
+		display: none;
+	}
+}
+
+/* 1st Level Links */
+ul.utility-lvl-1 {
+	margin: 6px 0 0 0;
+	padding: 0 15px;
+
+	@media screen and ($medium) {
+		display: none;
+	}
+
+	> li {
+		padding: 0;
+		margin: 0;
+		display: flex;
+
+		> a {
+			flex: 1 1 auto;
+			font-size: rem-calc(13);
+			color: $gray-dark;
+			padding: 6px;
+			text-transform: uppercase;
+		}
+	}
+}

@@ -1,0 +1,64 @@
+form {
+	margin-top: calc($standard/2);
+}
+
+.field-group {
+	position: relative;
+	margin-bottom: 1em;
+
+	small {
+		color: darken($gray-light, 30%);
+		font-style: oblique;
+		font-size: rem-calc(13);
+	}
+
+	> div {
+		position: relative;
+	}
+
+	&.no-margin {
+		margin-bottom: 0;
+	}
+}
+
+input,
+select,
+textarea {
+	width: 100%;
+	padding: 8px;
+	font-size: rem-calc(16);
+	line-height: rem-calc(26);
+	color: $gray;
+	background-color: $white;
+	background-clip: padding-box;
+	border: 1px solid darken($gray-light, 30%);
+	border-radius: 0;
+	box-shadow: 0;
+	position: relative;
+}
+
+label {
+	@include sans-cond;
+	text-transform: uppercase;
+}
+
+span.required {
+	font-size: rem-calc(14);
+	color: $blue;
+}
+
+textarea {
+	min-height: 150px;
+}
+
+.error {
+	@include sans;
+	text-transform: none;
+	color: $error;
+	font-size: rem-calc(14);
+	line-height: rem-calc(24);
+}
+
+input.error {
+	color: $gray ;
+}

@@ -1,0 +1,89 @@
+.space-above {
+	margin-top: calc($standard/2);
+
+	@media screen and ($medium) {
+		margin-top: $standard;
+	}
+}
+
+.space-around {
+	margin-top: calc($standard/2);
+	margin-bottom: calc($standard/2);
+
+	@media screen and ($medium) {
+		margin-top: $standard;
+		margin-bottom: $standard;
+	}
+}
+
+.space-below {
+	margin-bottom: calc($standard/2);
+
+	@media screen and ($medium) {
+		margin-bottom: $standard;
+	}
+}
+
+ .space-above-half {
+	margin-top: calc($standard/4);
+
+	@media screen and ($medium) {
+		margin-top: calc($standard/2);
+	}
+ }
+
+ .space-around-half {
+	margin-top: calc($standard/4);
+	margin-bottom: calc($standard/4);
+
+	@media screen and ($medium) {
+		margin-top: calc($standard/2);
+		margin-bottom: calc($standard/2);
+	}
+ }
+
+ .space-below-half {
+	margin-bottom: calc($standard/4);
+
+	@media screen and ($medium) {
+		margin-bottom: calc($standard/2);
+	}
+ }
+
+
+
+.xs-space {
+	display: none;
+
+	@media screen and (max-width: 575px) {
+		display: block;
+		padding: calc($standard/5);
+	}
+}
+
+.sm-space {
+	display: none;
+
+	@media screen and (min-width: 576px) and (max-width: 767px) {
+		display: block;
+		padding: calc($standard/5);
+	}
+}
+
+.md-space {
+	display: none;
+
+	@media screen and (min-width: 768px) and (max-width: 991px) {
+		display: block;
+		padding: calc($standard/5);
+	}
+}
+
+.lg-space {
+	display: none;
+
+	@media screen and (min-width: 992px) and (max-width: 1199px) {
+		display: block;
+		padding: calc($standard/5);
+	}
+}

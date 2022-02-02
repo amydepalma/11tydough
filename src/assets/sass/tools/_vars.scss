@@ -1,0 +1,36 @@
+// ===============================================================
+// Variables
+// ===============================================================
+
+// Bootstrap 4 Breakpoints
+$xs: "max-width: 575px"; // Extra small devices (portrait phones, less than 576px)
+$small: "min-width: 576px"; // Small devices (landscape phones, 576px and up)
+$medium: "min-width: 768px"; // Medium devices (tablets, 768px and up)
+$large: "min-width: 992px"; // Large devices (desktops, 992px and up)
+$xl: "min-width: 1200px"; // Extra large devices (large desktops, 1200px and up)
+
+// Colors
+$blue: #2e669c;
+$blue-light: #0aa3d8;
+
+$gray-light: #efefef;
+$gray: #75727b;
+$gray-dark: #333133;
+
+$black: #000000;
+$white: #ffffff;
+$transparent: rgba(255, 255, 255, 0);
+
+$error:         #ff0000;
+$error-light:   #ffe6e6;
+$error-dark:    darken($error, 10%);
+
+// Typography
+$rem-base: 16px;
+$base-font-size: 16;
+$sans: 'Open Sans', sans-serif;
+$sans-cond: 'Open Sans Condensed', sans-serif;
+$serif: 'Pacifico', cursive;
+
+// Spacing
+$standard: 45px;

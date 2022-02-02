@@ -1,0 +1,110 @@
+
+
+svg {
+	pointer-events: none; // Dont show titles on hover
+	transition: fill 0.1s linear;
+
+	&:not(:root) {
+		overflow: visible; //So in Firefox the edges dont get cut off
+	}
+
+	// Colors
+	use {
+		fill: $gray-dark;
+	}
+
+	&.white use {
+		fill: $white;
+	}
+
+	&.gray use {
+		fill: $gray;
+	}
+
+	&.blue use {
+		fill: $blue;
+	}
+
+	&.blue-light use {
+		fill: $blue-light;
+	}
+}
+
+a:hover > svg {
+	use {
+		fill: $gray;
+	}
+
+	&.white use {
+		fill: $white;
+	}
+
+	&.gray use {
+		fill: $gray-dark;
+	}
+
+	&.blue use {
+		fill: darken($blue, 10%);
+	}
+
+	&.blue-light use {
+		fill: darken($blue-light, 10%);
+	}
+}
+
+// Applied when the SVG is considered an icon, such as in the header nav, footer, or other inline space
+svg.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	position: relative;
+	bottom: -2px;
+
+	&.xs {
+		width: .55em;
+		height: .55em;
+	}
+
+	&.small {
+		width: .75em;
+		height: .75em;
+		bottom: 2px;
+	}
+
+	&.large {
+		width: 1.25em;
+		height: 1.25em;
+	}
+
+	&.xl {
+		width: 1.5em;
+		height: 1.5em;
+	}
+
+	&.display {
+		width: 5em;
+		height: 5em;
+		margin-top: 40px;
+		margin-bottom: 20px;
+
+		@media screen and ($medium) {
+			width: 9em;
+			height: 9em;
+			margin-top: 0;
+		}
+
+		&.first {
+			margin-top: 0;
+		}
+	}
+
+	+ .icon-text {
+		margin-left: 5px;
+		font-size: rem-calc(13);
+		line-height: rem-calc(20);
+
+		&.uppercase {
+			letter-spacing: .09em;
+		}
+	}
+}

@@ -1,0 +1,63 @@
+
+
+button, input[type="button"], input[type="reset"], input[type="submit"], .btn {
+	display: inline-block;
+	padding: 8px 15px;
+	background-color: $blue;
+	color: $white;
+	text-align: center;
+	letter-spacing: 1px;
+	border-radius: 2px;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	transition: background-color 0.2s;
+	font-size: rem-calc(16);
+	width: auto;
+	margin-bottom: 0;
+
+	svg.icon use {
+		fill: $white;
+	}
+
+	&:hover, &:focus, &:active {
+		color: $white;
+		background-color: darken($blue, 10%);
+		text-decoration: none !important;
+	}
+}
+
+
+.btn {
+	&.small {
+		font-size: rem-calc(14);
+		line-height: rem-calc(19);
+		padding: 4px 8px;
+	}
+
+	&.med {
+		font-size: rem-calc(15);
+		line-height: rem-calc(20);
+		padding: 6px 13px;
+	}
+
+	&.block {
+		display: block;
+		width: 100%;
+	}
+
+	&.gray {
+		background-color: $gray-dark;
+
+		&:hover {
+			background-color: darken($gray-dark, 15%);
+		}
+	}
+}
+
+h1 a > .btn,
+h2 a > .btn,
+h3 a > .btn,
+h4 a > .btn {
+	margin-left: 10px;
+}

@@ -1,0 +1,93 @@
+{% set currentUrl = page.url %}
+
+<section id="fixed-header-wrap">
+
+<!--
+	<a href="" id="alert-banner" target="_blank">
+		<span>Alert Banner HereAlert Banner HereAlert Banner HereAlert Banner HereAlert Banner Here</span>
+	</a>
+-->
+	<!-- Utility Naivagation; Appear above the Primary on Desktop and below the Primary on mobile  -->
+	<!-- Most of these are hidden on mobile and displayed in #mobile-navbar-links -->
+	<div id="utility-bar">
+		<ul class="utility-bar-lvl-1">
+			{% for item in settings.utilityNav %}
+			{% set class = nil %}
+			  {% if currentUrl == item.url %}
+				  {% set class = 'active' %}
+			  {% endif %}
+			  <li class="{{ class }}">
+				  <a href="{{ item.url }}" {% if currentUrl === item.url %}aria-current="page"{% endif %}>
+				  {% if item.icon %}
+					  <svg aria-hidden="true" class="icon"><use xlink:href="#icon-{{ item.icon }}" href="#icon-{{ item.icon }}"></use></svg>
+				  {% endif %}
+				  {{ item.name }}
+				  </a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<header class="container">
+		<div id="header-logo-container">
+			<div id="logo-wrapper">
+				<a href="/" id="logo">
+					<img src="{{ '/assets/imgs/theme/tanzar-kennels-logo.svg' | url }}" alt="Tan-Zar Kennels Logo" />
+				</a>
+			</div>
+		</div>
+
+		<!-- These are the links the appear within the header bar on mobile, left of the menu button	-->
+		<div id="mobile-navbar-links">
+			<a href="#" id="menu-btn">
+				<svg aria-hidden="true" class="icon xl"><use xlink:href="#icon-menu" href="#icon-menu"></use></svg>
+				<span class="visually-hidden">Menu Icon</span>
+			</a>
+		</div>
+
+		<nav id="main">
+			<div id="drilldown">
+				<div class="drilldown-container">
+					<div class="drilldown-root">
+
+					<!-- Top-Level Navigation -->
+						<div id="primary">
+							<ul class="primary-lvl-1">
+								{% for item in settings.primaryNav %}
+								  {% set class = nil %}
+								  {% if currentUrl == item.url %}
+									  {% set class = 'active' %}
+									{% endif %}
+									<li class="{{ class }}"><a href="{{ item.url }}" {% if currentUrl === item.url %}aria-current="page"{% endif %}>{{ item.name }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+
+						<div id="utility">
+							<ul class="utility-lvl-1">
+								{% for item in site.data.settings.utilityNav %}
+								  {% set class = nil %}
+								  {% if currentUrl == item.url %}
+										{% set class = 'active' %}
+									{% endif %}
+									<li class="{{ class }}">
+									  <a href="{{ item.url }}" {% if currentUrl === item.url %}aria-current="page"{% endif %}>
+									  {% if item.icon %}
+										  <svg aria-hidden="true" class="icon"><use xlink:href="#icon-{{ item.icon }}" href="#icon-{{ item.icon }}"></use></svg>
+									  {% endif %}
+									  {{ item.name }}
+									  </a>
+								</li>
+								{% endfor %}
+							</ul>
+						</div>
+
+					</div>
+					<!-- /drilldown-root -->
+				</div>
+				<!-- /drilldown-container -->
+			</div>
+			<!-- /drilldown -->
+		</nav>
+	</header>
+</section>

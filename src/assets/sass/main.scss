@@ -1,0 +1,275 @@
+
+@import 'libs/bootstrap-grid-with-ios-support';
+@import 'tools/vars';
+@import 'tools/functions';
+@import 'tools/mixins';
+
+// ==============================================
+// GLOBAL STRUCTURE
+// ==============================================
+
+html {
+	@include font-smoothing(on);
+}
+
+body {
+	@include sans;
+	font-size: 16px;
+	line-height: rem-calc(24);
+	color: $gray-dark;
+	@include selection-bkg($bkg-color: $gray-light);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+main {
+	padding-top: $standard;
+
+	&.home-main {
+		padding-top: calc($standard/2);
+
+		@media screen and ($medium) {
+			padding-top: $standard;
+		}
+
+	}
+}
+
+// ==============================================
+// GLOBAL HELPERS
+// ==============================================
+
+.clearfix {
+	clear: both;
+}
+
+// Hide from screen but not screen readers
+// Allow keyboards to still focus
+.visually-hidden {
+	border: 0 !important;
+	clip: rect(0 0 0 0) !important;
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+
+	&.focusable:active,
+	&.focusable:focus {
+		clip: auto !important;
+		height: auto !important;
+		margin: 0 !important;
+		overflow: visible !important;
+		position: static !important;
+		width: auto !important;
+	}
+}
+
+// ==============================================
+// MAJOR COMPONENTS
+// ==============================================
+
+@import "components/typography";
+@import "components/spacing";
+@import "components/svgs";
+@import "components/header";
+@import "components/footer";
+@import "components/sliders";
+@import "components/buttons";
+@import "components/forms";
+
+
+// ==============================================
+// MINOR COMPONENTS
+// These components were so small a separate
+// style sheet didn't seem necessary
+// ==============================================
+@media screen and (max-width: 767px) {
+	.mobile-hide {
+		display: none !important;
+	}
+
+	.mobile-show {
+		display: block !important;
+	}
+}
+
+@media screen and ($medium) {
+	.mobile-hide {
+		display: block !important;
+	}
+
+	.mobile-show {
+		display: none !important;
+	}
+}
+
+.centered {
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+// Homepage
+// ==============================================
+.home-banner {
+	margin: 0 auto;
+
+	&.mobile {
+		@media screen and ($small) {
+			display: none;
+		}
+	}
+
+	&.tablet {
+		display: none;
+
+		@media screen and ($small) {
+			display: block;
+		}
+
+		@media screen and ($medium) {
+			display: none;
+		}
+	}
+
+	&.desktop {
+		display: none;
+
+		@media screen and ($medium) {
+			display: block;
+		}
+	}
+}
+
+.home-callout {
+	width: 100%;
+	padding: calc($standard/3);
+	margin: 45px 0;
+	background-color: $blue;
+
+	@media screen and ($medium) {
+		padding: calc($standard/1.5);
+	}
+
+	> .container {
+
+		@media screen and ($large) {
+			display: flex;
+		}
+	}
+
+	.icon {
+		display: none;
+
+		@media screen and ($large) {
+			display: block;
+			flex: 1 1 20%;
+			align-self: center;
+		}
+	}
+
+	.content {
+		flex: 1 1 80%;
+
+		p, h2 {
+			color: $white;
+		}
+
+		h2 {
+			font-size: rem-calc(22);
+			line-height: rem-calc(33);
+
+			@media screen and ($large) {
+				font-size: rem-calc(32);
+				line-height: rem-calc(43);
+			}
+
+			@media screen and ($large) {
+				font-size: rem-calc(42);
+				line-height: rem-calc(53);
+			}
+		}
+	}
+}
+
+// Contact Page
+// ==============================================
+.directions {
+	margin-top: calc($standard/2);
+	margin-bottom: calc($standard/2);
+	padding-top: calc($standard/2);
+	padding-bottom: calc($standard/2);
+	background: lighten($blue-light, 40%);
+
+	@media screen and ($medium) {
+		margin-top: calc($standard/2);
+		margin-bottom: 0;
+		padding-top: calc($standard/2);
+		padding-bottom: 0;
+		background: $white;
+		border-top: 1px solid $gray;
+	}
+
+	@media screen and ($large) {
+		margin-top: 0;
+		padding-top: 0;
+		border-top: none;
+	}
+}
+
+// Misc
+// ==============================================
+.contact-details {
+
+	.phone, .email, .fax {
+		margin: 6px 0;
+		padding: 0;
+	}
+
+	.phone {
+		margin-top: 15px;
+
+		> .desktop {
+			display: none;
+
+			@media screen and ($medium) {
+				display: block;
+
+				a {
+					color: $gray-dark !important;
+				}
+			}
+		}
+
+		> .mobile {
+			@media screen and ($medium) {
+				display: none;
+			}
+		}
+	}
+
+	svg.icon {
+		margin-right: 5px;
+		bottom: 1px;
+	}
+}
+
+.iframe-responsive {
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	height: 0;
+	iframe {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+	}
+}
